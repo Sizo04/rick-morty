@@ -1,0 +1,52 @@
+nav {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+
+nav img {
+  max-width: 200px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+}
+
+.filters .filter-style {
+  background-color: #000000;
+  color: #16afc9;
+  height: 20px;
+  border: none;
+  margin: 0 1em;
+}
+
+.characters-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 90%;
+}
+
+.character-card {
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #131a33;
+  color: white;
+}
+
+.character-card:hover {
+  outline: 2px solid #16afc9;
+}
+
+.character-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
