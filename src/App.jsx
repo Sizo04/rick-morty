@@ -66,7 +66,7 @@ const translations = {
   },
 };
 
-function CharactersList({ language }) {
+function CharactersList({ language, setLanguage }) {
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState("");
   const [species, setSpecies] = useState("");
@@ -113,8 +113,8 @@ function CharactersList({ language }) {
         </div>
       </nav>
 
-      {loading && <p>{t.loading}</p>}
-      {error && <p>{t.error}</p>}
+      {loading && <p className="loading">{t.loading}</p>}
+      {error && <p className="error">{t.error}</p>}
 
       <div className="characters-container">
         <div className="characters-grid">
@@ -146,20 +146,28 @@ function CharactersList({ language }) {
         </div>
       </div>
 
-      <div className="pagination">
+      <footer>
         <button
+          className="filter-style"
           onClick={() => setPage((p) => Math.max(p - 1, 1))}
           disabled={!data?.characters?.info?.prev}
         >
           Previous
         </button>
         <button
+          className="filter-style"
+          onClick={() => setLanguage(language === "en" ? "de" : "en")}
+        >
+          Switch to {language === "en" ? "German" : "English"}
+        </button>
+        <button
+          className="filter-style"
           onClick={() => setPage((p) => p + 1)}
           disabled={!data?.characters?.info?.next}
         >
           Next
         </button>
-      </div>
+      </footer>
     </div>
   );
 }
@@ -169,12 +177,7 @@ export default function App() {
 
   return (
     <ApolloProvider client={client}>
-      <CharactersList language={language} />
-      <footer className="footer">
-        <button onClick={() => setLanguage(language === "en" ? "de" : "en")}>
-          Switch to {language === "en" ? "German" : "English"}
-        </button>
-      </footer>
+      <CharactersList language={language} setLanguage={setLanguage} />
     </ApolloProvider>
   );
 }

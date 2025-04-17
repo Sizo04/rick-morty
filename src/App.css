@@ -8,12 +8,20 @@ nav img {
   max-width: 200px;
 }
 
+.loading {
+  color: #16afc9;
+}
+
+.error {
+  color: red;
+}
+
 .filters {
   display: flex;
   align-items: center;
 }
 
-.filters .filter-style {
+.filter-style {
   background-color: #000000;
   color: #16afc9;
   height: 20px;
@@ -49,4 +57,37 @@ nav img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 2em 0;
+}
+
+footer button {
+  font-weight: bold;
+}
+
+footer button:disabled {
+  opacity: 30%;
+}
+
+footer .filter-style:hover {
+  background-color: #16afc9;
+  color: #131a33;
+}
+
+@media only screen and (max-width: 425px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav .filters {
+    flex-direction: column;
+  }
+
+  nav .filter-style {
+    margin: 5px 0;
+  }
 }
